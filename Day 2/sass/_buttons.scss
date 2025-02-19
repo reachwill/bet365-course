@@ -1,0 +1,7 @@
+.button-primary{
+    @include button-style($secondary-color);
+}
+
+.button-danger{
+    @include button-style($danger-color);
+}

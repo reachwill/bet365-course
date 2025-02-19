@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Example</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .wrapper{
+            width: 80%;
+            max-width: 1200px;
+        }
+        .parent{
+            container-type: inline-size;
+            background-color: rgb(119, 168, 210);
+        }
+        .parent2{
+            container-type: inline-size;
+            container-name: parent2;
+        }
+        .child{
+            width: 100%;
+            background-color: darkseagreen;
+            border-radius: 20px;
+            transition: all .5s;
+            padding: 20px;
+        }
+        @container (min-width: 1000px){
+            .child{
+                background-color: fuchsia;
+            }
+        }
+
+
+        @container parent2 (max-width: 500px){
+            div.child{
+                background-color: red;
+            }
+        }
+
+        @container (max-width: 500px){
+            .child{
+                background-color: black;
+                color: white;
+                border-radius: 0;
+            }
+        }
+
+        
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="parent">
+            <div class="child">
+                <h2>Header</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et fugiat, voluptatem cumque labore laborum laudantium autem tenetur odit harum esse ipsam ducimus! Impedit ipsam, corporis voluptatibus cumque expedita rerum nihil!</p>
+            </div>
+        </div>
+        <div class="parent2">
+            <div class="child">
+                <h2>Header</h2>
+                <p>Ducimus est recusandae reprehenderit. Qui neque assumenda, necessitatibus tempora quos amet rerum reiciendis, suscipit quo obcaecati aliquid vitae reprehenderit explicabo in nesciunt, magni error. Dolore quis id nostrum dolorem debitis!</p>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>

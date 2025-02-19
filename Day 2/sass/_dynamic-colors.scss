@@ -1,0 +1,50 @@
+// create a an array of colours in hex format
+$colors: #ff0000, #0000ff, #00ff00, #ffff00, #800080;
+
+// function to calculate the perceived brightness of  a colour
+@function luminance($color){
+    $red: red($color) / 255;
+    $green: green($color) / 255;
+    $blue: blue($color) / 255;
+
+    @if $red <= 0.03928{
+        $red: $red / 12.92;
+    } @else {
+        $red: pow(($red + 0.055) / 1.055, 2.4);
+    }
+    @if $green <= 0.03928{
+        $green: $green / 12.92;
+    } @else {
+        $green: pow(($green + 0.055) / 1.055, 2.4);
+    }
+    @if $blue <= 0.03928{
+        $blue: $blue / 12.92;
+    } @else {
+        $blue: pow(($blue + 0.055) / 1.055, 2.4);
+    }
+    @return (0.2126 * $red) + (0.7152 * $green) + (0.0722 * $blue);
+}
+
+@function contrast-color($bg-color){
+    @if luminance($bg-color) > 0.5{
+        @return black;
+    } @else{
+        @return white;
+    }
+}
+
+@function color-class-name($color){
+    @return to-lower-case(str-slice("#{inspect($color)}", 2));
+}
+
+@each $color in $colors{
+    $color-name: color-class-name($color);
+
+    .color-#{$color-name}{
+        background-color: $color;
+        padding: 20px;
+        margin: 10px;
+        text-align: center;
+        color: contrast-color($color);
+    }
+}

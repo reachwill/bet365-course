@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimised HTML Structure</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        /* BEM Naming Convention */
+        .nav-bar {
+            background: #333;
+            color: white;
+            padding: 10px;
+        }
+        .nav-bar__list {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        .nav-bar__item {}
+        .nav-bar__link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .article {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .article__title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .article__content {
+            font-size: 16px;
+        }
+        .article__author {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation with ARIA role -->
+     <!-- nav.nab-bar__list>li.nav-bar__item*3>a.nav-bar__link -->
+    <nav class="nav-bar" role="navigation" aria-label="Main Navigation">
+        <ul class="nav-bar__list">
+            <li class="nav-bar__item"><a href="#" class="nav-bar__link" aria-label="Go to Home Page">Home</a></li>
+            <li class="nav-bar__item"><a href="#" class="nav-bar__link" aria-label="Learn more About Us">About</a></li>
+            <li class="nav-bar__item"><a href="#" class="nav-bar__link" aria-label="Contact Us">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Article Section with ARIA roles -->
+    
+    <article class="article" role="article" aria-labelledby="article-title" aria-describedby="article-content">
+        <h1 class="article__title" id="article-title">Optimizing HTML with BEM and ARIA</h1>
+        <p class="article__author">By John Doe</p>
+        <div class="article__content" id="article-content">
+            <p>Using ARIA roles improves accessibility, while BEM naming helps maintain clean and scalable CSS structures.</p>
+        </div>
+    </article>
+</body>
+</html>

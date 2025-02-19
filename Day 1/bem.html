@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background: #efefef;
+        }
+
+        .products-productCard{
+            background: white;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0, 0.1);
+            padding: 20px;
+        }
+
+        .products-productCard_title{
+            font-size: 1.65rem;
+        }
+
+        .products-productCard_description{
+            font-size: 1rem;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .products-productCard_likeButton{
+            background: #ccc;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            padding: 8px 10px;
+        }
+
+        .products-productCard_likeButton--liked{
+            background: yellowgreen ;
+
+        }
+
+        .products-productCard_likeButton--liked:after{
+            content: 'd';
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="products">
+
+        <div class="products-productCard">
+            <img class="products-productCard_image" src="https://picsum.photos/300/200?grayscale" alt="An image description">
+            <div class="products-productCard_content">
+                <h2 class="products-productCard_title">Single Product Title</h2>
+                <p class="products-productCard_description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci inventore doloribus nesciunt sit aliquid autem? Unde, eos repellat a ratione necessitatibus facere atque. Dignissimos impedit magnam et suscipit sed natus.
+                </p>
+                <button class="products-productCard_likeButton    products-productCard_likeButton--liked">Like</button>
+            </div>
+        </div>
+
+    </div>
+
+    
+    
+</body>
+</html>

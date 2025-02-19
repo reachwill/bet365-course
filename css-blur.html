@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;;
+            align-items: center;
+            height: 100vh;
+            background-color: #444;
+        }
+        .image-container{
+            
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px 15px rgba(0,0,0,0.2)
+        }
+        .image-container img{
+            width: 100%;
+            height: 100%;
+            transition: filter 0.5s ease-in-out;
+        }
+        .image-container img.filtered{
+            filter: blur(5px) brightness(90%) contrast(200%);
+        }
+        .image-container:hover img.filtered{
+            filter: none;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div>
+        <div class="image-container">
+            <img src="https://picsum.photos/600/600" alt="" class="filtered">
+        </div>
+        <p class="caption">Hover over image to remove the blur.</p>
+    </div>
+    
+
+
+
+</body>
+</html>

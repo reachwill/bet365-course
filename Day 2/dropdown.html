@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .dropdown{
+            position: relative;
+            display: inline-block;
+            
+        }
+
+        .dropdown-button{
+            background-color: cornflowerblue;
+            color: white;
+            padding: 10px 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-menu{
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+            min-width: 150px;
+            z-index: 1;
+        }
+
+        .dropdown-menu a{
+            display: block;
+        }
+
+        .dropdown-menu a:hover{
+            background-color: aqua;
+        }
+
+        .dropdown:hover .dropdown-menu{
+            display: block;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="dropdown">
+        <button class="dropdown-button">Menu Item</button>
+        <div class="dropdown-menu"><a href="">Option 1</a><a href="">Option 2</a><a href="">Option 3</a></div>
+    </div>
+
+    
+</body>
+</html>

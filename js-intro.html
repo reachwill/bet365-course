@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="username" id="username">
+    <button onclick="displayMessage(this)">Login</button>
+    <div id="message"></div>
+    <script>
+        let userName;//this is a global variable
+        function displayMessage(element){
+            
+            userName = document.getElementById('username').value;
+            console.log(userName);
+
+            //check the user has entered a name
+            if(userName != '' && userName != undefined ){
+                document.getElementById('message').innerHTML = `Hello ${userName} , I hope you have a nice day`;
+                
+            }else{
+                alert('DOH! Name please!!');
+            }
+
+
+
+            
+
+            // document.getElementById('message').innerHTML = 'Hello ' + userName + ', I hope you have a nice day';
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
+        }
+        .grid img{
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .lightbox{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .lightbox.show{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .lightbox img{
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+        }
+
+        .close{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 45px;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="grid"></div>
+    <div class="lightbox">
+        <span class="close" onclick="closeLightbox()">X</span>
+        <img src="" alt="" id="lightboxImage">
+    </div>
+
+
+    <script>
+        const dataURL = 'https://picsum.photos/v2/list?page=1&limit=50';
+
+        async function fetchData(){
+            try{
+                const response = await fetch(dataURL);
+                if(!response.ok){
+                    console.error(response);
+                }
+                const data = await response.json();
+                console.table(data);
+                displayPhotos(data);
+            }catch(error){
+                console.error(error);
+            }
+
+        }
+
+
+        function displayPhotos(photos){
+            const grid = document.querySelector('.grid');
+            grid.innerHTML = photos.map(photo => 
+                `
+                <div class="photo" onclick="openLightbox('${photo.download_url}')">
+                    <figure>
+                        <img src="${photo.download_url}" alt="${photo.author}">
+                        <figcaption>${photo.author}</figcaption>
+                    </figure>
+                </div>
+                
+                `
+            ).join('');
+        }
+
+        function openLightbox(photo){
+            console.log(photo); 
+            document.getElementById('lightboxImage').src = photo;
+            document.querySelector('.lightbox').classList.add('show');
+        }
+
+        function closeLightbox(){
+            document.querySelector('.lightbox').classList.remove('show');
+        }
+
+
+
+
+
+
+
+        fetchData();
+
+    </script>
+    
+</body>
+</html>

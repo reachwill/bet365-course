@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        div:has(>span.highlight){
+            border: 5px solid red;
+            border-radius: 3px;
+            text-align: center;
+        }
+        .wrapper{
+            max-width: 760px;
+            margin: auto;
+        }
+
+        h2+p{
+            font-style: italic;
+        }
+
+        h2+p:before, h2+p:after{
+            content: '"'
+        }
+
+        nav li{
+            list-style: none;
+        }
+
+        nav li:has(ul)::marker{
+            content: '+';
+            font-size: 1.2rem;
+            color: indianred;
+        }
+
+        h1, h2, h3{
+            color: blue;
+        }
+
+        :where(h1, h2, h3, #special){
+            color: blue;
+        }
+
+        :is(h1, h2, #special, h3){
+            color: blue;
+        }
+
+
+        body h1{
+            color: green;
+        }
+
+        body h2{
+            color: yellow;
+        }
+
+        body h3{
+            color: purple;
+        }
+
+        
+        a[href$=pdf]:after{
+            content: ' (PDF)';
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+
+        <a href="terms.pdf">Terms and Conditions</a>
+
+        <h1>This is heading H1</h1>
+        <h2>This is heading H2</h2>
+        <h3>This is heading H1</h3>
+        <div id="special">
+            This is a special element.
+        </div>
+
+        <nav>
+            <ul>
+                <li>Nav Item 1
+                    <ul>
+                        <li>Sub menu items</li>
+                        <li>Sub menu items</li>
+                    </ul>
+                </li>
+                <li>Nav Item 2</li>
+                <li>Nav Item 3</li>
+                <li>Nav Item 4
+                    <ul>
+                        <li>Sub menu items</li>
+                        <li>Sub menu items
+                            <ul>
+                                <li>Sub menu items</li>
+                                <li>Sub menu items</li>
+                                <li>Sub menu items</li>
+                                <li>Sub menu items</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+
+
+        <div>
+            <span class="highlight">This div is highlighted because of me.</span>
+        </div>
+
+        <h2>Heading</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, ad voluptatum. Similique in praesentium perspiciatis ut incidunt. Corporis perspiciatis aspernatur quo pariatur explicabo rem, delectus qui voluptatem illo voluptas odio!</p>
+        <p>Consequuntur, quam? Vel, ad. Totam, amet nam quos nesciunt quas tempora, id expedita itaque culpa asperiores officiis, placeat sapiente ipsa in pariatur? Molestias quidem eveniet, ut et consequatur eligendi temporibus.</p>
+
+
+
+    </div>
+
+    
+    
+
+
+
+
+</body>
+</html>

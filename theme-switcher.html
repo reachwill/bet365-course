@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --background-color-light: white;
+            --color-light: black;
+            --background-color-dark: black;
+            --color-dark: white;
+        }
+
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            background-color: var(--background-color-light);
+            color: var(--color-light);
+            transition: all 0.5s;
+        }
+
+        .dark-theme{
+            background-color: var(--background-color-dark);
+            color: var(--color-dark);
+        }
+
+        @media (prefers-color-scheme: dark){
+            body{
+                background-color: var(--background-color-dark);
+                color: var(--color-dark);
+            }
+        }
+        @media (prefers-color-scheme: light){
+            body{
+                background-color: var(--background-color-light);
+                color: var(--color-light);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button id="light-btn">Light</button>
+        <button id="dark-btn">Dark</button>
+    </header>
+
+    <h1>Theme Switcher</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus non excepturi soluta natus, similique distinctio iure eveniet earum beatae nihil quis molestias rerum placeat voluptatem esse quaerat numquam quae quam!</p>
+    <p>Blanditiis, enim inventore dicta in delectus perferendis, dolores saepe iste nostrum magni suscipit non recusandae quisquam maiores illum hic facilis unde vel aliquid assumenda! Incidunt, vero! Tempore vel repellat ducimus?</p>
+    
+    <script>
+        //declare event handlers for the buttons
+        document.getElementById('light-btn').addEventListener('click', switchTheme);
+        document.getElementById('dark-btn').addEventListener('click', switchTheme);
+
+        function switchTheme(eventObject){
+            //console.log(eventObject);
+            const clickedButtonId = eventObject.target.id;
+            //console.log(clickedButtonId);
+            if(clickedButtonId == 'dark-btn'){
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+            }else{
+                document.body.classList.remove('dark-theme');
+                localStorage.removeItem('theme');
+            }
+        }
+
+        window.onload = () => {
+            if(localStorage.getItem('theme')){
+                document.body.classList.add('dark-theme');
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

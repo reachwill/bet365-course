@@ -1,0 +1,13 @@
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+@import 'navbar';
+
+body{
+    font-family: $font-stack;
+    background-color: $primary-color;
+    color: $text-color;
+    margin:0;
+    padding:0;
+}
+

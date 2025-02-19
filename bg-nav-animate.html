@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar{
+            display: flex;
+            justify-content: center;
+            background: #ddd;
+            position: relative;
+            padding: 10px 0;
+        }
+        .nav-link{
+            position: relative;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav-link:hover{
+            color: #333;
+        }
+        .nav-highlight{
+            position: absolute;
+            bottom: 0;
+            height: 4px;
+            background-color: orange;
+            width: 0;
+            transition: all 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-highlight"></div>
+        <div class="nav-link" onclick="moveHighlight(this)">Home</div>
+        <div class="nav-link" onclick="moveHighlight(this)">Products</div>
+        <div class="nav-link" onclick="moveHighlight(this)">Services</div>
+        <div class="nav-link" onclick="moveHighlight(this)">Contact Specialist</div>
+    </nav>
+
+    <script>
+        const highlight = document.querySelector('.nav-highlight');
+        function moveHighlight(element){
+            highlight.style.width = element.offsetWidth + 'px';
+            highlight.style.left = element.offsetLeft + 'px';
+            highlight.style.height = (element.offsetHeight + 20) + 'px';
+        }
+        window.onload = function(){
+            moveHighlight(document.querySelector('.nav-link'));
+        }
+    </script>
+    
+</body>
+</html>

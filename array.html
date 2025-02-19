@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="images"></div>
+    
+    <script>
+        // let images = [
+        //     'https://picsum.photos/id/0/5000/3333', 
+        //     'https://picsum.photos/id/1/5000/3333', 
+        //     'https://picsum.photos/id/2/5000/3333'
+        // ];
+
+        let images = [
+            {
+                imageURL: 'https://picsum.photos/id/0/5000/3333',
+                altText: 'Image of a laptop',
+                author: 'Arne Slot'
+            },
+            {
+                imageURL: 'https://picsum.photos/id/1/5000/3333',
+                altText: 'Image of another laptop',
+                author: 'Jane Doe'
+            },
+            {
+                imageURL: 'https://picsum.photos/id/2/5000/3333',
+                altText: 'Image of a Macbook',
+                author: 'Mary Smith'
+            }
+        ]
+
+        images.forEach((image, index)=>{
+            console.log(image);
+            const imagesDiv = document.getElementById('images');
+            const imageHTML = `
+                <figure>
+                <img src="${image.imageURL}" width="240" alt="${image.altText}">
+                <figcaption>${image.author}</figcaption>
+                </figure>
+            
+            `;
+            imagesDiv.innerHTML  += imageHTML;
+            
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            height: 100vh;
+        }
+
+        .wrapper {
+            width: 80%;
+            /* Initially, the container is 80% of the viewport */
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .wrapper > *{
+            margin-bottom: 30px;
+        }
+
+        .parent {
+            /* container-name: myContainer; */
+            container-type: inline-size;
+            background-color: #e6e6e6;
+            /* border: 2px dashed #333; */
+            /* padding: 10px; */
+        }
+        .parent2 {
+            container-name: parent2;
+            container-type: inline-size;
+        }
+
+        .child {
+            width: 100%;
+            /* Takes 100% of the container */
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        /* Add styles if myContainer is less than 500px wide */
+        @container parent2 (width < 500px) {
+            .child {
+                width: 50%;
+                border: 5px solid maroon;
+                background-color: salmon;
+            }
+        }
+
+        @container  (min-width: 500px) {
+            .child {
+                width: 70%;
+                background-color: #FF9800;
+                padding: 30px;
+            }
+        }
+
+        @container  (min-width: 800px) {
+            .child {
+                width: 60%;
+                background-color: #2196F3;
+                padding: 40px;
+            }
+        }
+
+        /* Container query for even larger sizes */
+        @container  (min-width: 1000px) {
+            .child {
+                width: 50%;
+                background-color: #f006e1;
+                padding: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+
+
+        <h1>Demo of @container</h1>
+
+        <p>Resize the page to see the effect.</p>
+
+        <div class="parent">
+            <div class="child">
+                <h2>A header</h2>
+                <p>Some text.</p>
+            </div>
+        </div>
+
+        <div class="parent2">
+            <div class="child">
+                <h2>A header</h2>
+                <p>Some text.</p>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
